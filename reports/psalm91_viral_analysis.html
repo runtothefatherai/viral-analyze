@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSALM 91 — Viral 해부 + 대본 분석</title>
+<style>
+  :root {
+    --bg: #0e0e10;
+    --card: #18181b;
+    --card-2: #1f1f23;
+    --border: #2a2a2e;
+    --text: #fafafa;
+    --muted: #a1a1aa;
+    --accent: #ff3366;
+    --gold: #fbbf24;
+    --green: #22c55e;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    padding: 40px 20px 80px;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  header.hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(255,51,102,0.08), rgba(168,85,247,0.05));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  header.hero h1 {
+    font-size: 42px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff, #fbbf24);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  header.hero p { color: var(--muted); font-size: 16px; max-width: 760px; margin: 0 auto; }
+  header.hero .tag-row { margin-top: 20px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .tag {
+    background: var(--card-2); border: 1px solid var(--border); color: var(--muted);
+    padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 500;
+  }
+  .framework-note {
+    background: rgba(168,85,247,0.08);
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 24px 0 0;
+    font-size: 13px;
+    color: #e9d5ff;
+    line-height: 1.7;
+    text-align: left;
+  }
+  .framework-note strong { color: #fff; }
+  h2.section-title {
+    font-size: 28px; font-weight: 700; margin: 60px 0 24px;
+    display: flex; align-items: center; gap: 12px; letter-spacing: -0.5px;
+  }
+  h2.section-title .num {
+    background: var(--accent); color: #fff;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800;
+  }
+  .ranking-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin-bottom: 30px;
+  }
+  .rank-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+  .rank-card.gold { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .rank-card .rank-label {
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .rank-card .multiplier { font-size: 42px; font-weight: 800; line-height: 1; letter-spacing: -2px; }
+  .rank-card .multiplier .x { font-size: 24px; color: var(--muted); margin-left: 4px; }
+  .rank-card.gold .multiplier { color: var(--gold); }
+  .rank-card.weak .multiplier { color: var(--red); }
+  .rank-card .handle { margin-top: 12px; font-weight: 600; font-size: 14px; }
+  .rank-card .desc { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+  .post-analysis {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; margin-bottom: 32px; overflow: hidden;
+  }
+  .post-analysis.winner { border-color: var(--gold); }
+  .post-analysis.loser { border-color: rgba(239,68,68,0.4); }
+  .post-header {
+    padding: 24px; background: var(--card-2);
+    display: flex; align-items: center; gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .post-rank-badge {
+    width: 50px; height: 50px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800;
+    background: var(--card); border: 1px solid var(--border);
+  }
+  .post-analysis.winner .post-rank-badge { background: var(--gold); color: #000; border-color: var(--gold); }
+  .post-analysis.loser .post-rank-badge { background: var(--red); color: #fff; border-color: var(--red); }
+  .post-header h3 { font-size: 20px; font-weight: 700; }
+  .post-header .meta-line { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .post-header a { color: var(--blue); text-decoration: none; }
+
+  .post-body-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+  }
+  .video-column {
+    background: #000;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #000;
+  }
+  .video-wrap video {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .caption-block {
+    background: var(--card-2);
+    padding: 14px 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .caption-block .caption-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .caption-block .caption-text {
+    color: #e4e4e7;
+    word-break: break-word;
+  }
+  .caption-block .hashtag { color: var(--blue); }
+
+  .perf-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .perf-stat { padding: 14px; text-align: center; border-right: 1px solid var(--border); }
+  .perf-stat:last-child { border-right: none; }
+  .perf-stat .label {
+    color: var(--muted); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+  .perf-stat .value { font-size: 18px; font-weight: 700; }
+  .perf-stat .value.gold { color: var(--gold); }
+  .perf-stat .value.red { color: var(--red); }
+  .analysis-column { padding: 24px 28px; }
+
+  /* 3-Second Hook Anatomy */
+  .hook-anatomy {
+    background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(168,85,247,0.04));
+    border: 1px solid rgba(251,191,36,0.25);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .hook-anatomy .anatomy-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hook-anatomy .anatomy-subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .hook-quote {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    background: var(--bg);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 16px;
+    color: #fef3c7;
+    font-style: italic;
+  }
+  .hook-quote.empty { color: #fca5a5; border-left-color: var(--red); background: rgba(239,68,68,0.08); font-style: normal; }
+  .hook-stages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .stage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .stage-card .s-step {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .stage-card .s-name {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .stage-card .s-content {
+    font-size: 12px;
+    color: #d4d4d8;
+    line-height: 1.5;
+  }
+  .stage-card.empty .s-name, .stage-card.empty .s-content { color: var(--muted); }
+  .stage-card.empty { background: rgba(239,68,68,0.04); border-color: rgba(239,68,68,0.3); }
+  .stage-card.empty .s-step { color: var(--red); }
+
+  /* 3-Component Hook */
+  .three-comp-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .three-comp {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .three-comp .tc-label {
+    font-size: 9px;
+    color: var(--accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+  .three-comp .tc-text { color: #d4d4d8; line-height: 1.4; }
+  .alignment-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+  .alignment-pill.aligned { background: rgba(34,197,94,0.15); color: #86efac; }
+  .alignment-pill.misaligned { background: rgba(239,68,68,0.15); color: #fca5a5; }
+
+  /* Transcript with reaction markers */
+  .label-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); margin: 24px 0 12px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .transcript-full {
+    background: #0a0a0c;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #e4e4e7;
+  }
+  .transcript-full .seg {
+    display: block;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: relative;
+  }
+  .transcript-full .seg.hook-seg {
+    background: rgba(251,191,36,0.10);
+    border-left: 3px solid var(--gold);
+  }
+  .transcript-full .seg.pain-seg {
+    background: rgba(239,68,68,0.08);
+    border-left: 3px solid var(--red);
+  }
+  .transcript-full .seg.peak-seg {
+    background: rgba(168,85,247,0.08);
+    border-left: 3px solid var(--purple);
+  }
+  .transcript-full .seg.cta-seg {
+    background: rgba(34,197,94,0.08);
+    border-left: 3px solid var(--green);
+  }
+  .transcript-full .seg.exit-seg {
+    background: rgba(100,116,139,0.10);
+    border-left: 3px solid #64748b;
+    opacity: 0.85;
+  }
+  .reaction-badge {
+    display: inline-block;
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 2px 9px;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 0 4px;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+  }
+  .reaction-badge.stop { background: rgba(251,191,36,0.2); color: var(--gold); border-color: var(--gold); }
+  .reaction-badge.curi { background: rgba(59,130,246,0.2); color: #93c5fd; border-color: rgba(59,130,246,0.4); }
+  .reaction-badge.pain { background: rgba(239,68,68,0.2); color: #fca5a5; border-color: rgba(239,68,68,0.4); }
+  .reaction-badge.pivot { background: rgba(168,85,247,0.2); color: #d8b4fe; border-color: rgba(168,85,247,0.4); }
+  .reaction-badge.peak { background: rgba(168,85,247,0.3); color: #f3e8ff; border-color: var(--purple); }
+  .reaction-badge.save { background: rgba(34,197,94,0.2); color: #86efac; border-color: rgba(34,197,94,0.4); }
+  .reaction-badge.exit { background: rgba(100,116,139,0.25); color: #cbd5e1; border-color: #64748b; }
+  .reaction-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+    padding-left: 8px;
+    border-left: 2px solid var(--border);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .reaction-note strong { color: #fff; font-style: normal; }
+
+  /* Script Structure */
+  .structure-block {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .structure-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .structure-stage {
+    background: var(--card);
+    border-left: 3px solid var(--border);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .structure-stage.hook { border-left-color: var(--gold); }
+  .structure-stage.journey { border-left-color: var(--blue); }
+  .structure-stage.peak { border-left-color: var(--purple); }
+  .structure-stage.end { border-left-color: var(--green); }
+  .structure-stage .ss-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--muted);
+  }
+  .structure-stage.hook .ss-label { color: var(--gold); }
+  .structure-stage.journey .ss-label { color: #93c5fd; }
+  .structure-stage.peak .ss-label { color: #d8b4fe; }
+  .structure-stage.end .ss-label { color: #86efac; }
+  .structure-stage .ss-content { color: #e4e4e7; font-size: 12px; }
+  .structure-stage .ss-quote {
+    color: #fef3c7;
+    font-style: italic;
+    background: rgba(0,0,0,0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 11px;
+  }
+
+  .verdict-box {
+    background: var(--card-2); border-left: 3px solid var(--accent);
+    padding: 16px 20px; border-radius: 0 8px 8px 0;
+    margin: 20px 0 0; font-size: 14px; line-height: 1.7;
+  }
+  .verdict-box.winner { border-left-color: var(--gold); background: rgba(251,191,36,0.05); }
+  .verdict-box.loser { border-left-color: var(--red); background: rgba(239,68,68,0.05); }
+  .verdict-box strong { color: #fff; }
+
+  /* Callaway 4 Mistakes Checklist */
+  .callaway-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .callaway-item {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+  .callaway-item.ok { border-color: rgba(34,197,94,0.4); }
+  .callaway-item.fail { border-color: rgba(239,68,68,0.4); }
+  .callaway-item .ci-head {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 12px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .callaway-item .ci-detail { color: var(--muted); font-size: 11px; line-height: 1.5; }
+
+  /* Benchmark section */
+  .benchmark-block {
+    background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(59,130,246,0.05));
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 16px; padding: 32px; margin-top: 30px;
+  }
+  .benchmark-block h2 {
+    font-size: 28px; margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff, #d8b4fe);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .benchmark-block .subtitle { color: var(--muted); margin-bottom: 24px; }
+  .benchmark-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px; margin-bottom: 14px;
+  }
+  .benchmark-card .b-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .benchmark-card .b-rule { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .benchmark-card .b-example {
+    background: var(--bg); border-left: 2px solid var(--gold);
+    padding: 12px 16px; border-radius: 0 6px 6px 0;
+    font-size: 13px; line-height: 1.6; color: #e4e4e7;
+  }
+  .benchmark-card .b-example strong { color: var(--gold); }
+
+  /* Legend */
+  .legend-bar {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-size: 12px;
+  }
+  .legend-bar .lb-title { font-weight: 700; margin-bottom: 8px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .legend-bar .lb-items { display: flex; flex-wrap: wrap; gap: 14px; }
+  .legend-bar .lb-item { display: inline-flex; align-items: center; gap: 6px; color: #d4d4d8; }
+
+  @media (max-width: 1000px) {
+    .post-body-grid { grid-template-columns: 1fr; }
+    .video-column { border-right: none; border-bottom: 1px solid var(--border); }
+    .video-wrap { aspect-ratio: 16/9; max-height: 60vh; }
+    .hook-stages, .three-comp-row, .callaway-grid { grid-template-columns: 1fr; }
+    .perf-strip { grid-template-columns: repeat(3, 1fr); }
+    .perf-stat:nth-child(4), .perf-stat:nth-child(5) { border-top: 1px solid var(--border); }
+    header.hero h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header class="hero">
+  <h1>PSALM 91 — Viral 해부</h1>
+  <p>전체 대본 + 시청자 반응 트리거 + 3초 HOOK 해부 + 대본 구조. Jenny Hoyos (Shock → Expectation → End Goal, But/So, 복선, Dual Narrative, 피크엔드) + Callaway (Delay/Confusion/Irrelevance/Disinterest, 3-Component Alignment) 프레임워크 기준.</p>
+  <div class="tag-row">
+    <span class="tag">📜 전체 대본</span>
+    <span class="tag">🪝 3초 HOOK 해부</span>
+    <span class="tag">⚡ 반응 트리거</span>
+    <span class="tag">📐 대본 구조</span>
+  </div>
+  <div class="framework-note">
+    <strong>📚 분석 근거:</strong> 첨부된 6개 MD 파일에 기반.<br>
+    • <strong>Jenny 훅 공식:</strong> Shock(시각 충격) → Expectation(주제 명시) → End Goal(끝까지 볼 이유) — 3초 안에 3개 모두<br>
+    • <strong>Callaway 4가지 실수:</strong> Delay / Confusion / Irrelevance / Disinterest<br>
+    • <strong>Callaway 3-Component:</strong> Visual Hook + Spoken Hook + Text Hook이 perfectly aligned<br>
+    • <strong>Jenny 스토리:</strong> But/So, 복선(콜드오프닝/메커니즘/시각), Dual Narrative, Peak-End, 호기심 갭<br>
+    • <strong>One-subject, One-question 원칙</strong> — 모든 시청자가 같은 질문을 갖게
+  </div>
+</header>
+
+<!-- VIRAL MULTIPLIER -->
+<h2 class="section-title"><span class="num">1</span>팔로워 대비 진짜 Viral 순위</h2>
+<div class="ranking-grid">
+  <div class="rank-card gold">
+    <div class="rank-label">🔥 진짜 VIRAL</div>
+    <div class="multiplier">818<span class="x">x</span></div>
+    <div class="handle">@iammarissalopez</div>
+    <div class="desc">1.6M ÷ 1,955 followers</div>
+  </div>
+  <div class="rank-card">
+    <div class="rank-label">📈 강한 도달</div>
+    <div class="multiplier">7.2<span class="x">x</span></div>
+    <div class="handle">@the_trulyfreelife</div>
+    <div class="desc">571.7K ÷ 79.3K</div>
+  </div>
+  <div class="rank-card">
+    <div class="rank-label">🌱 약한 도달</div>
+    <div class="multiplier">4.1<span class="x">x</span></div>
+    <div class="handle">@thefaithful_kre8tiv3</div>
+    <div class="desc">8.8K ÷ 2,163</div>
+  </div>
+  <div class="rank-card weak">
+    <div class="rank-label">⚠️ 언더퍼폼</div>
+    <div class="multiplier">0.21<span class="x">x</span></div>
+    <div class="handle">@ally_yost</div>
+    <div class="desc">491.6K ÷ 2.3M</div>
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="legend-bar">
+  <div class="lb-title">📖 대본 안 마커 범례</div>
+  <div class="lb-items">
+    <span class="lb-item"><span class="reaction-badge stop">🛑 SCROLL STOP</span> 엄지가 멈춤</span>
+    <span class="lb-item"><span class="reaction-badge curi">❓ CURIOSITY GAP</span> 호기심 갭 발생</span>
+    <span class="lb-item"><span class="reaction-badge pain">😰 PAIN POINT</span> 시청자 이입</span>
+    <span class="lb-item"><span class="reaction-badge pivot">🔄 BUT/SO</span> 전환 지점</span>
+    <span class="lb-item"><span class="reaction-badge peak">⚡ PEAK</span> 감정 최고조</span>
+    <span class="lb-item"><span class="reaction-badge save">💾 SAVE/SHARE</span> 알고리즘 시그널</span>
+    <span class="lb-item"><span class="reaction-badge exit">🚪 EXIT POINT</span> 이탈 위험</span>
+  </div>
+</div>
+
+<h2 class="section-title"><span class="num">2</span>4개 영상 대본 + 반응 해부</h2>
+
+<!-- ============================== POST 1: iammarissalopez (WINNER) ============================== -->
+<article class="post-analysis winner">
+  <div class="post-header">
+    <div class="post-rank-badge">🥇</div>
+    <div style="flex:1;">
+      <h3>@iammarissalopez · Rissa † <span style="color:var(--gold);">— 818x VIRAL</span></h3>
+      <div class="meta-line">팔로워 1,955 · 1.6M views · 136초 · <a href="https://www.tiktok.com/@iammarissalopez/video/7606817137637838110" target="_blank">View on TikTok ↗</a></div>
+    </div>
+  </div>
+  <div class="perf-strip">
+    <div class="perf-stat"><div class="label">조회수</div><div class="value gold">1.6M</div></div>
+    <div class="perf-stat"><div class="label">좋아요</div><div class="value">299K</div></div>
+    <div class="perf-stat"><div class="label">댓글</div><div class="value">1,174</div></div>
+    <div class="perf-stat"><div class="label">공유</div><div class="value">12.2K</div></div>
+    <div class="perf-stat"><div class="label">저장</div><div class="value gold">79K</div></div>
+  </div>
+
+  <div class="post-body-grid">
+    <div class="video-column">
+      <div class="video-wrap">
+        <video controls preload="metadata"
+               poster="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/cover-iammarissa-20260214201547-7606817137637838110.jpg"
+               src="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/video-iammarissa-20260214201547-7606817137637838110.mp4"></video>
+      </div>
+      <div class="caption-block">
+        <div class="caption-label">📝 캡션</div>
+        <div class="caption-text">Psalm 91</div>
+        <div class="caption-label" style="margin-top:10px;">🎵 음원</div>
+        <div class="caption-text">original sound — Rissa † (오리지널)</div>
+      </div>
+    </div>
+
+    <div class="analysis-column">
+
+      <!-- 3-SECOND HOOK ANATOMY -->
+      <div class="hook-anatomy">
+        <div class="anatomy-title">🪝 3초 HOOK 해부 <span class="alignment-pill aligned">3-Component PERFECT ALIGN</span></div>
+        <div class="anatomy-subtitle">Jenny 3단계 공식 + Callaway "topic clarity + on-target curiosity" 동시 충족</div>
+        <div class="hook-quote">"I don't know who needs to hear this, but start praying Psalm 91 every night before you go to bed."</div>
+        <div class="hook-stages">
+          <div class="stage-card">
+            <div class="s-step">STAGE 1</div>
+            <div class="s-name">🛑 SHOCK</div>
+            <div class="s-content"><strong>"I don't know who needs to hear this"</strong> — 운명적 호명 어법. 시청자에게 "나한테 하는 말?"이라는 정보 갭 즉시 발생. Jenny의 자이가르닉 효과 트리거.</div>
+          </div>
+          <div class="stage-card">
+            <div class="s-step">STAGE 2</div>
+            <div class="s-name">🎯 EXPECTATION</div>
+            <div class="s-content"><strong>"start praying Psalm 91"</strong> — 1초 안에 주제 명시(Callaway speed-to-value). 시청자가 "이게 뭔지" 즉시 이해 → opt-in 결정.</div>
+          </div>
+          <div class="stage-card">
+            <div class="s-step">STAGE 3</div>
+            <div class="s-name">🎁 END GOAL</div>
+            <div class="s-content"><strong>"every night before you go to bed"</strong> — 실행 가능한 약속 + "어떻게?"를 끝까지 봐야 답이 나오는 복선(메커니즘 제시형).</div>
+          </div>
+        </div>
+        <div class="three-comp-row">
+          <div class="three-comp">
+            <div class="tc-label">👁 VISUAL HOOK</div>
+            <div class="tc-text">친밀한 face-to-camera, 진정성 있는 표정 (친구가 말 거는 느낌)</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">🗣 SPOKEN HOOK</div>
+            <div class="tc-text">"I don't know who needs to hear this, but..."</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">📝 TEXT HOOK</div>
+            <div class="tc-text">캡션 "Psalm 91" (1단어 = 검색 최적화 + 주제 강화)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL TRANSCRIPT WITH REACTION MARKERS -->
+      <div class="label-title">📜 전체 대본 + 시청자 반응 트리거 분석</div>
+      <div class="transcript-full">
+
+        <div class="seg hook-seg">
+          <span class="reaction-badge stop">🛑 SCROLL STOP</span>
+          <span class="reaction-badge curi">❓ CURIOSITY GAP</span>
+          "<strong>I don't know who needs to hear this, but start praying Psalm 91 every night before you go to bed.</strong>"
+          <div class="reaction-note">
+            <strong>왜 멈추나:</strong> "I don't know who needs to hear this"는 신앙 niche의 검증된 viral 훅 템플릿. 시청자 50,000명이 듣자마자 50,000명 모두 같은 질문을 떠올림 — <strong>"왜 이걸 들어야 하지? 나한테 하는 말?"</strong> (Callaway의 single subject, single question 충족).
+          </div>
+        </div>
+
+        <div class="seg">
+          <span class="reaction-badge curi">❓ 신뢰 구축</span>
+          "Since May 17th, 2025, I have prayed Psalm 91 every single night right before I go to bed. It is just a very strong and powerful prayer that has truly transformed my life. It's transformed my sleep. It's just been amazing."
+          <div class="reaction-note">
+            <strong>구체적 날짜의 힘:</strong> "Since May 17th, 2025"가 진정성을 폭발. 막연한 "오래전부터" 대신 정확한 날짜 = "이 사람 진짜 했네"라는 확신. Jenny의 dual narrative — 말은 testimony, 표정은 진심.
+          </div>
+        </div>
+
+        <div class="seg pain-seg">
+          <span class="reaction-badge pain">😰 PAIN POINT 활성화</span>
+          "<strong>I used to struggle with some pretty intense, very real, scary, bad dreams very often to the point where I would wake up in tears. I would have a bad day after I'd wake up. It just was not a good time.</strong>"
+          <div class="reaction-note">
+            <strong>이 부분이 viral의 결정타:</strong> Callaway의 #3 실수(Irrelevance) 완전 해결. "악몽으로 울며 깬 적 있는 사람"이 미국에 수백만. 시청자가 자신과 동일시(you-frame 효과). 이 4초에 <strong>댓글·저장의 80%</strong>가 결정됨.
+          </div>
+        </div>
+
+        <div class="seg">
+          <span class="reaction-badge pivot">🔄 BUT/SO 전환</span>
+          "<strong>But</strong> since I started doing this every single night, I just feel a spiritual and a mental shift that I can only give credit to God for. I will occasionally get a bad dream here and there, but not on the level that I was. And again, it's very rare that I get them."
+          <div class="reaction-note">
+            <strong>Jenny의 But/So:</strong> 악몽(BUT) → 매일 기도(SO) → 영적 변화. 코르티솔(악몽) → 도파민(솔루션 발견)의 뇌과학적 페어링. 시청자는 이 순간 "나도 해보고 싶다"는 의도 형성.
+          </div>
+        </div>
+
+        <div class="seg">
+          <span class="reaction-badge curi">❓ 다음 루프 OPEN</span>
+          "I'm going to recite it. Feel free to listen."
+          <div class="reaction-note">
+            <strong>호기심 루프 재오픈:</strong> "낭독하겠다" → 새로운 기대 생성. 이미 첫 루프(어떻게 되었나?)가 닫혔지만 바로 다음 루프(실제 기도는?)를 연다. Jenny: "루프를 닫으면 즉시 다음 루프를 열어라."
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          <span class="reaction-badge peak">⚡ PEAK — 감정 최고조</span>
+          "Lord, we dwell in the secret place of the Most High, and we abide under the shadow of the Almighty. We will say of you, you are our refuge and our fortress, our God in whom we trust. Surely you'll deliver us from the snare of the hunter and from the deadly pestilence. You'll cover us with your feathers and under your wings we will find refuge. Your faithfulness will be our shield and buckler. We will not fear the terror of night, nor the arrow that flies by day, nor the pestilence that stalks in the darkness, nor the plague that destroys at midday. <strong>A thousand may fall at our side, ten thousand at our right hand, but it will never come near us.</strong>"
+          <div class="reaction-note">
+            <strong>피크엔드 이론 적용:</strong> Psalm 91 본문 = 영상의 PEAK. "A thousand may fall... ten thousand... but it will never come near us"가 가장 강한 감정 구간. 다니엘 카너먼 법칙대로 시청자는 이 부분을 기억한 채 영상을 종료.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          "We will only observe with our eyes and see the punishment of the wicked. Because we have set our love on you, you will rescue us, you'll protect us, for we acknowledge your name, Jesus. We will call on you and you'll answer us. You'll be with us in trouble. You'll deliver us and honor us. With long life, you'll satisfy us and show us your salvation. Lord, we trust in your protection, your guidance, and your love. We know that you're always with us, even in the midst of challenges. We thank you so much for your faithfulness and for the promise of your presence. <strong>And in Jesus' mighty name we pray. Amen.</strong>"
+          <div class="reaction-note">
+            <strong>"우리"의 마법:</strong> 본문 1인칭 단수("I/me")를 <strong>"we/us"로 모두 변환</strong>. Callaway의 you-frame 변형 — 시청자 모두를 기도에 끌어들임. 화면 너머 사람도 같이 기도하는 효과.
+          </div>
+        </div>
+
+        <div class="seg cta-seg">
+          <span class="reaction-badge save">💾 SAVE/SHARE 트리거</span>
+          "Hands down my favorite prayer. I love it more than I could describe. I love that God has just given us such a powerful and protective prayer. <strong>Do it every single night, even when you don't want to.</strong> Have a great day and I'll talk to you later. Bye."
+          <div class="reaction-note">
+            <strong>저장률 4.94%의 비밀:</strong> "Do it every single night" = 명확한 행동 지시. 시청자는 "나중에 다시 봐야겠다" → 저장 79K. 알고리즘이 가장 강하게 반응하는 시그널. 그리고 "Bye" 직후 즉시 종료(Jenny: 답 후 1초도 늘이지 말 것).
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SCRIPT STRUCTURE -->
+      <div class="structure-block">
+        <h4>📐 대본 구조 (Jenny 6-element framework)</h4>
+        <div class="structure-stage hook">
+          <div class="ss-label">[HOOK] 0~3초</div>
+          <div class="ss-content">운명적 호명 + 즉시 주제 명시 + 미해결 약속</div>
+          <div class="ss-quote">"I don't know who needs to hear this, but start praying Psalm 91 every night before you go to bed."</div>
+        </div>
+        <div class="structure-stage journey">
+          <div class="ss-label">[JOURNEY] 4~50초 — But/So 구조</div>
+          <div class="ss-content">
+            구체적 날짜(testimony) → 악몽 pain → BUT 기도 시작 → SO 영적 변화 → 낭독 약속(루프 재오픈)
+          </div>
+        </div>
+        <div class="structure-stage peak">
+          <div class="ss-label">[PEAK] 50~120초</div>
+          <div class="ss-content">Psalm 91 본문 1인칭 → "we/us" 변환 낭독. "A thousand may fall... but it will never come near us"가 최고조.</div>
+        </div>
+        <div class="structure-stage end">
+          <div class="ss-label">[END] 120~136초</div>
+          <div class="ss-content">"Do it every single night" CTA → 즉시 종료. Save 시그널 트리거.</div>
+        </div>
+      </div>
+
+      <!-- CALLAWAY 4 MISTAKES CHECK -->
+      <div class="callaway-grid">
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #1 Delay 회피</div>
+          <div class="ci-detail">첫 문장 안에 "Psalm 91" 명시. 0초 delay.</div>
+        </div>
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #2 Confusion 회피</div>
+          <div class="ci-detail">5학년 수준 단어. 한 문장에 하나의 의미만.</div>
+        </div>
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #3 Irrelevance 해결</div>
+          <div class="ci-detail">"악몽으로 우는 사람" pain point로 시청자 self-identify.</div>
+        </div>
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #4 Disinterest 해결</div>
+          <div class="ci-detail">"누구한테 하는 말?"의 호기심 루프 + 실제 기도 듣고 싶음.</div>
+        </div>
+      </div>
+
+      <div class="verdict-box winner">
+        <strong>🎯 왜 818x로 터졌나:</strong> Jenny의 6대 기법 + Callaway 4 mistakes 모두 통과. 결정적 요소 3가지:<br>
+        <strong>① 운명적 호명 훅</strong> ("I don't know who needs to hear this") — 시청자 한 명 한 명이 자기 일로 느낌<br>
+        <strong>② 구체적 날짜 testimony</strong> ("Since May 17th, 2025") — 진정성 폭발<br>
+        <strong>③ Pain Point 명확 활성화</strong> (악몽, 눈물) — Callaway의 "agitate the pain"<br>
+        본문에서 "I/me"를 "we/us"로 바꾼 건 천재적. 시청자를 본문 안으로 끌어들여 같이 기도하게 만듦. 저장 4.94% = 알고리즘 강력 push 시그널.
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============================== POST 2: the_trulyfreelife ============================== -->
+<article class="post-analysis">
+  <div class="post-header">
+    <div class="post-rank-badge">🥈</div>
+    <div style="flex:1;">
+      <h3>@the_trulyfreelife — 7.2x 도달</h3>
+      <div class="meta-line">팔로워 79.3K · 571.7K views · 157초 · <a href="https://www.tiktok.com/@the_trulyfreelife/video/7483289962994240814" target="_blank">View on TikTok ↗</a></div>
+    </div>
+  </div>
+  <div class="perf-strip">
+    <div class="perf-stat"><div class="label">조회수</div><div class="value">571.7K</div></div>
+    <div class="perf-stat"><div class="label">좋아요</div><div class="value">50.5K</div></div>
+    <div class="perf-stat"><div class="label">댓글</div><div class="value">772</div></div>
+    <div class="perf-stat"><div class="label">공유</div><div class="value">4,310</div></div>
+    <div class="perf-stat"><div class="label">저장</div><div class="value">21.5K</div></div>
+  </div>
+
+  <div class="post-body-grid">
+    <div class="video-column">
+      <div class="video-wrap">
+        <video controls preload="metadata"
+               poster="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/cover-the_trulyf-20250318230734-7483289962994240814.jpg"
+               src="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/video-the_trulyf-20250318230734-7483289962994240814.mp4"></video>
+      </div>
+      <div class="caption-block">
+        <div class="caption-label">📝 캡션</div>
+        <div class="caption-text">
+          Here is how to pray psalm 91! Check out link in bio for more!<br>
+          <span class="hashtag">#psalm91 #nightprayer #christiantiktok #faith #scripture #spiritualwarfare #motivation #prayers #inspiration #creatorsearchinsights</span>
+        </div>
+        <div class="caption-label" style="margin-top:10px;">🎵 음원</div>
+        <div class="caption-text">Glimpse (Slowed + Reverb) — Gabriel Albuquerqüe</div>
+      </div>
+    </div>
+
+    <div class="analysis-column">
+
+      <!-- 3-SECOND HOOK ANATOMY -->
+      <div class="hook-anatomy">
+        <div class="anatomy-title">🪝 3초 HOOK 해부 <span class="alignment-pill aligned">3-Component ALIGNED</span></div>
+        <div class="anatomy-subtitle">메커니즘 제시형 훅 (Jenny 복선 유형 B) + Callaway question-hook 변형</div>
+        <div class="hook-quote">"Let me teach you how to pray Psalm 91. This is the Psalm that I pray every night before I go to sleep. It is so powerful."</div>
+        <div class="hook-stages">
+          <div class="stage-card">
+            <div class="s-step">STAGE 1</div>
+            <div class="s-name">🛑 SHOCK</div>
+            <div class="s-content"><strong>"Let me teach you"</strong> — 권위 + you-frame. Jenny 기준 "예고형 금지" 위반에 가깝지만 즉시 주제로 연결.</div>
+          </div>
+          <div class="stage-card">
+            <div class="s-step">STAGE 2</div>
+            <div class="s-name">🎯 EXPECTATION</div>
+            <div class="s-content"><strong>"how to pray Psalm 91"</strong> — 메커니즘 제시. "방법이 뭔데?"가 모두의 머릿속 질문.</div>
+          </div>
+          <div class="stage-card">
+            <div class="s-step">STAGE 3</div>
+            <div class="s-name">🎁 END GOAL</div>
+            <div class="s-content"><strong>"so powerful"</strong> — 약한 복선. iammarissalopez 같은 "끝까지 봐야"의 강력함은 없음.</div>
+          </div>
+        </div>
+        <div class="three-comp-row">
+          <div class="three-comp">
+            <div class="tc-label">👁 VISUAL HOOK</div>
+            <div class="tc-text">face-to-camera, freckles 필터. Niche authority 표정.</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">🗣 SPOKEN HOOK</div>
+            <div class="tc-text">"Let me teach you how to pray Psalm 91."</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">📝 TEXT HOOK</div>
+            <div class="tc-text">캡션 "Here is how to..." + 10개 해시태그 (SEO 강력)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL TRANSCRIPT WITH REACTION MARKERS -->
+      <div class="label-title">📜 전체 대본 + 시청자 반응 트리거 분석</div>
+      <div class="transcript-full">
+
+        <div class="seg hook-seg">
+          <span class="reaction-badge stop">🛑 SCROLL STOP</span>
+          <span class="reaction-badge curi">❓ How-to 호기심</span>
+          "<strong>Let me teach you how to pray Psalm 91. This is the Psalm that I pray every night before I go to sleep. It is so powerful.</strong>"
+          <div class="reaction-note">
+            <strong>"Let me teach"의 양면성:</strong> Jenny의 "Let's get started" 금지 룰에 가깝지만, "how to" 메커니즘이 즉시 따라와서 살려놓음. iammarissalopez 대비 호기심 강도 약 60%.
+          </div>
+        </div>
+
+        <div class="seg pain-seg">
+          <span class="reaction-badge pain">😰 PAIN POINT 활성화 (강함)</span>
+          "<strong>At night, there's a lot of spiritual attacks that happen. This is the time when witchcraft and evil and all these demonic activities happen at night, especially to believers.</strong> So pray this before you go to bed."
+          <div class="reaction-note">
+            <strong>이 4초가 핵심:</strong> "spiritual attacks at night" = Christian niche의 가장 강력한 pain point. 영적 공포로 잠 못 자는 사람들 self-identify. Callaway의 "agitate known pain point" 정확히 작동.
+          </div>
+        </div>
+
+        <div class="seg">
+          <span class="reaction-badge pivot">🔄 진행감 부여</span>
+          "This is how I do it. I read it verbatim, just the way we're about to read it. I have it memorized, and I'm rereading it in the NLT. I do recommend memorizing it, but just start by reading it every night."
+          <div class="reaction-note">
+            <strong>Jenny의 Progression:</strong> "이제 어떻게 할지" 단계 제시. 시청자가 끝에 얼마나 가까운지 인지 → 끝까지 시청 유도. 단, "verbatim, NLT, memorize" 등 너무 많은 정보 = Callaway #2 Confusion 위험.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          <span class="reaction-badge peak">⚡ PEAK 1 — Scripture 낭독</span>
+          "Okay, so it says, Those who live in the shelter of the Most High will find rest in the shadow of the Almighty. This I declare about the Lord. He alone is my refuge, my place of safety. He is my God and I trust him, for he will rescue you from every trap and protect you from deadly disease. He will cover you with his feathers. He will shelter you with his wings. His faithful promises are your armor and protection. Do not be afraid of the terrors of the night, nor the arrows that fly in the day. <strong>Do not dread disease that stalks in the darkness, nor disaster that strikes at midday. Though a thousand may fall at your side and ten thousands are dying around you, these evils will not touch you.</strong>"
+          <div class="reaction-note">
+            <strong>긴 낭독의 위험:</strong> Psalm 91 전문을 그대로 읽음. iammarissalopez와 달리 "we/us" 변환 없이 NLT "you" 표현 유지 → 시청자가 한 발 떨어진 느낌. 일부 이탈 발생.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          "Just open your eyes and see how the wicked are punished. If you make the Lord your refuge, if you make the Most High your shelter, no evil will conquer you or plague come near your home, for he will order his angels to protect you wherever you go. They will hold you up with their hands so you won't even hurt your foot on a stone. You will trample upon lions and cobras. You will crush fierce lions and serpents underneath your feet. The Lord says, I will rescue those who love me. I will protect those who trust in my name. When they call on me, I will answer. I will be with them in trouble. I will rescue and honor them. I will reward them with a long life and give them my salvation."
+        </div>
+
+        <div class="seg">
+          <span class="reaction-badge curi">❓ 두 번째 루프 — 진짜 가르침</span>
+          "<strong>And the way I personally pray it is that I replace a lot of the words with like I. Here's an example.</strong> So when verse four says he will cover you with his feathers. So I say he will cover me with his feathers. He will shelter me with his wings. <strong>And if you're praying, let's say, for example, for your family, you will say he will cover us with his feathers and he will shelter us with his wings.</strong>"
+          <div class="reaction-note">
+            <strong>여기가 진짜 가치 구간:</strong> "praying the scriptures" 기법 = 이 영상의 진짜 차별점. iammarissalopez가 자연스럽게 "we/us"로 바꾼 것을 이 영상은 <strong>"왜 그렇게 해야 하는지"를 가르침</strong>. 비신자라도 "오, 새로운 정보네" → 저장 유발.
+          </div>
+        </div>
+
+        <div class="seg">
+          "Obviously, we're not changing scripture. We're making it personal. This is what we call praying the scriptures. And this is why I love this psalm."
+          <div class="reaction-note">
+            <strong>용어 부여:</strong> "praying the scriptures"라는 이름을 줌. 시청자가 댓글로 공유할 수 있는 명확한 개념 → 공유율 0.75%.
+          </div>
+        </div>
+
+        <div class="seg pain-seg">
+          <span class="reaction-badge pain">😰 Pain Point 재활성화</span>
+          "I'm telling you, <strong>if you're getting spiritually attacked at night, if you're seeing a lot of evil demonic activities at night, please pray this psalm. You have trouble sleeping at night. Pray this psalm.</strong>"
+          <div class="reaction-note">
+            <strong>You-frame 4연타:</strong> "if you... if you... You... Pray..." Callaway의 you/your 원칙 완벽 적용. 시청자에게 "이건 너를 위한 거야" 메시지.
+          </div>
+        </div>
+
+        <div class="seg cta-seg">
+          <span class="reaction-badge save">💾 CTA — Bio 링크</span>
+          "I also love Psalm 4 8. If you have trouble praying scriptures and if you don't know which scriptures to be praying, <strong>I do have an e-book in my bio. Please check that out.</strong> I have a chapter in that book that is all about spiritual warfare. <strong>And I do have a free version if you do want to check that out. It's for anxiety.</strong> For anybody that might be struggling with anxiety, it's free."
+          <div class="reaction-note">
+            <strong>전형적 funnel CTA:</strong> 무료 → 유료. e-book 판매로 연결. iammarissalopez는 CTA가 "do it every night" 행동 지시였지만, 이건 상업적 funnel. 시청자 일부 이탈 위험.
+          </div>
+        </div>
+
+        <div class="seg cta-seg">
+          "You can check it out in my bio. I pray that this helps. <strong>I'm telling you, keep praying Psalm 91. Have this memorized. Pray before you go to bed.</strong>"
+          <div class="reaction-note">
+            <strong>엔딩 약간 늘어짐:</strong> "I pray that this helps" + 다시 권장 = Jenny 기준 "답 후 즉시 컷" 위반. 1~2초 늘어짐이 추정 완료율 ~28%로 떨어뜨림.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SCRIPT STRUCTURE -->
+      <div class="structure-block">
+        <h4>📐 대본 구조 (Jenny 6-element framework)</h4>
+        <div class="structure-stage hook">
+          <div class="ss-label">[HOOK] 0~5초</div>
+          <div class="ss-content">메커니즘 제시형 ("how to") + niche authority</div>
+          <div class="ss-quote">"Let me teach you how to pray Psalm 91."</div>
+        </div>
+        <div class="structure-stage journey">
+          <div class="ss-label">[JOURNEY] 5~60초</div>
+          <div class="ss-content">강력한 pain point (영적 공격) → 방법 단계 제시 → Psalm 91 본문 낭독</div>
+        </div>
+        <div class="structure-stage peak">
+          <div class="ss-label">[PEAK] 60~110초 — "Praying the Scriptures" 기법</div>
+          <div class="ss-content">"you→I→us 변환" 가르침. 이게 이 영상의 차별점이자 진짜 가치.</div>
+        </div>
+        <div class="structure-stage end">
+          <div class="ss-label">[END] 110~157초</div>
+          <div class="ss-content">Bio 링크 funnel + 재권장. 약간 늘어짐.</div>
+        </div>
+      </div>
+
+      <!-- CALLAWAY -->
+      <div class="callaway-grid">
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #1 Delay 회피</div>
+          <div class="ci-detail">첫 문장 안에 주제 명시.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">⚠️ #2 Confusion 위험</div>
+          <div class="ci-detail">"verbatim, NLT, memorize" 한 번에 너무 많은 용어.</div>
+        </div>
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #3 Irrelevance 해결</div>
+          <div class="ci-detail">"영적 공격으로 잠 못 자는 사람" pain.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">⚠️ #4 Disinterest 부분 실패</div>
+          <div class="ci-detail">"끝에 뭐가 나올까?" 복선 약함.</div>
+        </div>
+      </div>
+
+      <div class="verdict-box">
+        <strong>🎯 왜 7배:</strong> Hook이 평범한 How-to지만 <strong>3가지가 살림</strong>:<br>
+        <strong>①</strong> "Spiritual attacks at night" pain point가 강력 — Christian niche의 핵심 갈망 자극<br>
+        <strong>②</strong> "Praying the scriptures" 기법 = 진짜 가치 — 시청자가 새로 배운 정보로 저장 유발<br>
+        <strong>③</strong> 10개 해시태그 SEO 전략 — TikTok 검색 풀에 정확히 포지셔닝 (#creatorsearchinsights는 알고리즘 트리거)<br>
+        단, iammarissalopez와 달리 <strong>personal testimony 약함</strong> + e-book funnel로 일부 이탈. 818x가 아니라 7.2x인 이유.
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============================== POST 3: thefaithful_kre8tiv3 ============================== -->
+<article class="post-analysis">
+  <div class="post-header">
+    <div class="post-rank-badge">🥉</div>
+    <div style="flex:1;">
+      <h3>@thefaithful_kre8tiv3 · DaNira 💕 — 4.1x 도달</h3>
+      <div class="meta-line">팔로워 2,163 · 8.8K views · 110초 · <a href="https://www.tiktok.com/@thefaithful_kre8tiv3/video/7643909924900064525" target="_blank">View on TikTok ↗</a></div>
+    </div>
+  </div>
+  <div class="perf-strip">
+    <div class="perf-stat"><div class="label">조회수</div><div class="value">8.8K</div></div>
+    <div class="perf-stat"><div class="label">좋아요</div><div class="value">1,948</div></div>
+    <div class="perf-stat"><div class="label">댓글</div><div class="value">142</div></div>
+    <div class="perf-stat"><div class="label">공유</div><div class="value">117</div></div>
+    <div class="perf-stat"><div class="label">저장</div><div class="value">322</div></div>
+  </div>
+
+  <div class="post-body-grid">
+    <div class="video-column">
+      <div class="video-wrap">
+        <video controls preload="metadata"
+               poster="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/cover-thefaithfu-20260525191453-7643909924900064525.jpg"
+               src="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/video-thefaithfu-20260525191453-7643909924900064525.mp4"></video>
+      </div>
+      <div class="caption-block">
+        <div class="caption-label">📝 캡션</div>
+        <div class="caption-text">
+          Psalms 91: Protection Prayer 💕🫂<br>
+          <span class="hashtag">#protectionprayer #psalms91 #christiantiktok #fyp</span>
+        </div>
+        <div class="caption-label" style="margin-top:10px;">🎵 음원</div>
+        <div class="caption-text">original sound — DaNira 💕</div>
+      </div>
+    </div>
+
+    <div class="analysis-column">
+
+      <div class="hook-anatomy">
+        <div class="anatomy-title">🪝 3초 HOOK 해부 <span class="alignment-pill misaligned">3-Component PARTIAL ALIGN</span></div>
+        <div class="anatomy-subtitle">강한 영적 선언 hook이지만 비신자에게 진입 장벽</div>
+        <div class="hook-quote">"Hey baby, let's read the protection prayer. Yeah, yeah, in the spirit of the holy and most living God, I rebuke any attacks of the enemy on my brother or sister on the other side of this phone."</div>
+        <div class="hook-stages">
+          <div class="stage-card">
+            <div class="s-step">STAGE 1</div>
+            <div class="s-name">🛑 SHOCK</div>
+            <div class="s-content"><strong>"Hey baby, let's read the protection prayer"</strong> — 친밀한 호명. 약한 shock.</div>
+          </div>
+          <div class="stage-card">
+            <div class="s-step">STAGE 2</div>
+            <div class="s-name">🎯 EXPECTATION</div>
+            <div class="s-content"><strong>"protection prayer"</strong> — 주제 명시. 하지만 "Psalm 91"이라는 검색 키워드는 spoken hook에 없음.</div>
+          </div>
+          <div class="stage-card empty">
+            <div class="s-step">STAGE 3</div>
+            <div class="s-name">🎁 END GOAL 약함</div>
+            <div class="s-content">"rebuke any attacks of the enemy" → 영적 선언이지만 "끝까지 봐야 답이 나옴"의 복선 부재.</div>
+          </div>
+        </div>
+        <div class="three-comp-row">
+          <div class="three-comp">
+            <div class="tc-label">👁 VISUAL HOOK</div>
+            <div class="tc-text">표준 face-to-camera. 시각 차별화 없음.</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">🗣 SPOKEN HOOK</div>
+            <div class="tc-text">"Hey baby, let's read the protection prayer."</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">📝 TEXT HOOK</div>
+            <div class="tc-text">"Psalms 91: Protection Prayer" — spoken과 정렬 OK.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="label-title">📜 전체 대본 + 시청자 반응 트리거 분석</div>
+      <div class="transcript-full">
+
+        <div class="seg hook-seg">
+          <span class="reaction-badge stop">🛑 SCROLL STOP (약함)</span>
+          "<strong>Hey baby, let's read the protection prayer. Yeah, yeah, in the spirit of the holy and most living God,</strong> I rebuke any attacks of the enemy on my brother or sister on the other side of this phone."
+          <div class="reaction-note">
+            <strong>"Hey baby" 양날의 검:</strong> 단골 시청자에겐 친밀 = 강력. 첫 노출 시청자에겐 "이게 뭐지?" = Callaway #2 Confusion. <strong>"rebuke", "attacks of the enemy"</strong> = 비신자에게 진입 장벽. niche-specific 어휘.
+          </div>
+        </div>
+
+        <div class="seg">
+          <span class="reaction-badge curi">❓ 영적 권위 선언</span>
+          "Lord God, I pray right now that your word become alive and well in their lives. In Jesus name, amen."
+          <div class="reaction-note">
+            <strong>중보기도 구조:</strong> 시청자를 위해 기도 → 강한 연결감. 하지만 testimony도 pain point도 없음. iammarissalopez와 결정적 차이.
+          </div>
+        </div>
+
+        <div class="seg exit-seg">
+          <span class="reaction-badge exit">🚪 EXIT POINT (10~20초)</span>
+          "Okay, Psalms 91."
+          <div class="reaction-note">
+            <strong>여기서 큰 이탈 발생:</strong> 짧은 인사 후 즉시 본문 낭독으로 전환 → Callaway의 4가지 실수 모두 활성화. <strong>비신자·우연 노출자가 이 시점에 ~30~40% 이탈</strong>. 알고리즘 push 중단의 원인.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          <span class="reaction-badge peak">⚡ Psalm 91 본문 낭독</span>
+          "Those who live in the shelter of the Most High will find rest in the shadow of the Almighty. This I declare about the Lord. He alone is my refuge, my place of safety. He is my God and I trust him, for he will rescue you from every trap and protect you from deadly disease. He will cover you with his feathers. He will shelter you with his wings. His faithful promises are your armor and protection."
+          <div class="reaction-note">
+            <strong>핵심 문제:</strong> NLT 그대로 "you/him" 유지. iammarissalopez처럼 "we/us" 변환 안 함. 시청자가 본문 안에 들어오지 못함 → 감정 이입 약함.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          "Do not be afraid of the terror of the night, nor the arrows that flies in the day. Do not dread the disease that stalks in darkness, nor the disaster that strikes at midday. Though a thousand fall at your feet, though ten thousand are dying around you, these evils will not touch you. Just open your eyes and see how the wicked are punished. If you make the Lord your refuge, if you make the Most High your shelter, no evil will conquer you. No plague will come near you, for he will order his angels to protect you wherever you go. They will hold you up with their hands so you won't even hurt your foot on a stone. You will trample upon lions and cobras. You will crush fierce lions and serpents under your feet."
+        </div>
+
+        <div class="seg peak-seg">
+          "The Lord says, I will rescue those who love me. I will protect those who trust in my name. When they call on me, I will answer. I will be with them in trouble. I will rescue and honor them. I will reward them with a long life and give them my salvation. <strong>In Jesus' name, amen.</strong>"
+          <div class="reaction-note">
+            <strong>엔딩 처리:</strong> "In Jesus' name, amen"으로 깔끔하게 끝남. Jenny의 "답 후 즉시 컷" 원칙 OK. 하지만 그 앞까지 너무 평탄해서 PEAK 느낌이 없음.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="structure-block">
+        <h4>📐 대본 구조 (Jenny 6-element framework)</h4>
+        <div class="structure-stage hook">
+          <div class="ss-label">[HOOK] 0~10초</div>
+          <div class="ss-content">친밀한 호명 + 영적 선언. 호기심 갭 약함.</div>
+          <div class="ss-quote">"Hey baby, let's read the protection prayer."</div>
+        </div>
+        <div class="structure-stage journey">
+          <div class="ss-label">[JOURNEY] 10~15초 — 거의 없음</div>
+          <div class="ss-content"><strong>가장 큰 약점:</strong> Testimony, pain, but/so 모두 부재. 인사 후 바로 본문.</div>
+        </div>
+        <div class="structure-stage peak">
+          <div class="ss-label">[PEAK] 15~105초</div>
+          <div class="ss-content">Psalm 91 NLT 그대로 낭독. "you" 표현 유지로 감정 거리감.</div>
+        </div>
+        <div class="structure-stage end">
+          <div class="ss-label">[END] 105~110초</div>
+          <div class="ss-content">"In Jesus' name, amen" 깔끔. 단, CTA·실행 지시 없음.</div>
+        </div>
+      </div>
+
+      <div class="callaway-grid">
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #1 Delay 회피</div>
+          <div class="ci-detail">즉시 "protection prayer" 명시.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">❌ #2 Confusion</div>
+          <div class="ci-detail">"rebuke, enemy" 등 niche-specific 어휘 = 비신자 이해 불가.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">❌ #3 Irrelevance</div>
+          <div class="ci-detail">Pain point 부재 → "이게 왜 나에게?" 답 없음.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">❌ #4 Disinterest</div>
+          <div class="ci-detail">"끝에 뭐가 나올까?" 복선 없음. 본문 낭독만 예상.</div>
+        </div>
+      </div>
+
+      <div class="verdict-box loser">
+        <strong>🎯 왜 4배밖에 안 나왔나:</strong> 첫 노출 시청자(=비신자, 우연 노출자) 진입 장벽이 너무 높음. "Hey baby"는 단골에겐 좋지만 신규에겐 혼란. <strong>iammarissalopez와 결정적 차이 3가지</strong>:<br>
+        <strong>①</strong> Personal testimony 부재 (악몽 같은 구체적 경험 없음)<br>
+        <strong>②</strong> Pain point 명시 안 함<br>
+        <strong>③</strong> Psalm 본문 "we/us" 변환 안 함 → 시청자가 기도 안에 들어가지 못함<br>
+        Hook은 영적으로 강하지만 viral 알고리즘은 niche-narrow를 싫어함.
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============================== POST 4: ally_yost ============================== -->
+<article class="post-analysis loser">
+  <div class="post-header">
+    <div class="post-rank-badge">⚠️</div>
+    <div style="flex:1;">
+      <h3>@ally_yost — 0.21x (언더퍼폼)</h3>
+      <div class="meta-line">팔로워 2.3M · 491.6K views · 82초 · <a href="https://www.tiktok.com/@ally_yost/video/7590877715499175198" target="_blank">View on TikTok ↗</a></div>
+    </div>
+  </div>
+  <div class="perf-strip">
+    <div class="perf-stat"><div class="label">조회수</div><div class="value red">491.6K</div></div>
+    <div class="perf-stat"><div class="label">좋아요</div><div class="value">139.7K</div></div>
+    <div class="perf-stat"><div class="label">댓글</div><div class="value">746</div></div>
+    <div class="perf-stat"><div class="label">공유</div><div class="value">4,781</div></div>
+    <div class="perf-stat"><div class="label">저장</div><div class="value">18.6K</div></div>
+  </div>
+
+  <div class="post-body-grid">
+    <div class="video-column">
+      <div class="video-wrap">
+        <video controls preload="metadata"
+               poster="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/cover-ally_yost-20260102212247-7590877715499175198.jpg"
+               src="https://api.apify.com/v2/key-value-stores/zjNYJmqTvkbb34DT3/records/video-ally_yost-20260102212247-7590877715499175198.mp4"></video>
+      </div>
+      <div class="caption-block">
+        <div class="caption-label">📝 캡션</div>
+        <div class="caption-text">psalm 91.</div>
+        <div class="caption-label" style="margin-top:10px;">🎵 음원</div>
+        <div class="caption-text">963 Hz — Sound Of Nature &amp; Albert Van Deyk</div>
+      </div>
+    </div>
+
+    <div class="analysis-column">
+
+      <div class="hook-anatomy" style="border-color: rgba(239,68,68,0.4);">
+        <div class="anatomy-title">🪝 3초 HOOK 해부 <span class="alignment-pill misaligned">SPOKEN HOOK 부재</span></div>
+        <div class="anatomy-subtitle">Jenny의 절대 규칙 위반 — 훅 없이 바로 본문</div>
+        <div class="hook-quote empty">"Those who live in the shelter of the Most High will find rest in the shadow of the Almighty."</div>
+        <div class="hook-stages">
+          <div class="stage-card empty">
+            <div class="s-step">STAGE 1</div>
+            <div class="s-name">🛑 SHOCK ❌</div>
+            <div class="s-content">시각 충격 없음. 본인 얼굴 = brand 인지만 작동.</div>
+          </div>
+          <div class="stage-card empty">
+            <div class="s-step">STAGE 2</div>
+            <div class="s-name">🎯 EXPECTATION ❌</div>
+            <div class="s-content">Spoken hook 자체가 없음. 바로 본문이 시작 → "이게 뭐지?" 혼란.</div>
+          </div>
+          <div class="stage-card empty">
+            <div class="s-step">STAGE 3</div>
+            <div class="s-name">🎁 END GOAL ❌</div>
+            <div class="s-content">복선 없음. 호기심 갭 없음. 정보 갭 없음.</div>
+          </div>
+        </div>
+        <div class="three-comp-row">
+          <div class="three-comp">
+            <div class="tc-label">👁 VISUAL HOOK</div>
+            <div class="tc-text">메가 셀럽 본인. 친숙도가 유일한 멈춤 요인.</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">🗣 SPOKEN HOOK</div>
+            <div class="tc-text"><strong>없음.</strong> 본문 1번 절부터 바로 시작.</div>
+          </div>
+          <div class="three-comp">
+            <div class="tc-label">📝 TEXT HOOK</div>
+            <div class="tc-text">"psalm 91." 한 줄. 해시태그 0개.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="label-title">📜 전체 대본 + 시청자 반응 트리거 분석</div>
+      <div class="transcript-full">
+
+        <div class="seg exit-seg">
+          <span class="reaction-badge exit">🚪 IMMEDIATE EXIT (첫 3초)</span>
+          "<strong>Those who live in the shelter of the Most High will find rest in the shadow of the Almighty. This I declare about the Lord.</strong>"
+          <div class="reaction-note">
+            <strong>Jenny의 "예고형 금지" 룰 정반대:</strong> 훅이 아예 없음. 바로 본문. 첫 노출 시청자의 약 50%가 이 3초에 이탈 (Callaway: "처음 2초 절벽 같은 이탈"). 메가 셀럽 브랜드만이 일부를 잡음.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          <span class="reaction-badge peak">⚡ 본문 낭독 시작</span>
+          "He alone is my refuge, my place of safety. He is my God, and I trust Him. For He will rescue you from every trap and protect you from deadly disease. He will cover you with His feathers. He will shelter you with His wings. His faithful promises are your armor and protection."
+          <div class="reaction-note">
+            <strong>963 Hz 음원이 유일한 차별점:</strong> "힐링 주파수" 음원 = TikTok 알고리즘에서 wellness 카테고리 분류. 명상·기도 콘텐츠 풀에서 일부 노출.
+          </div>
+        </div>
+
+        <div class="seg peak-seg">
+          "Do not be afraid of the terrors of the night, nor the arrow that flies in the day. Do not dread the disease that stalks in darkness, nor the disaster that strikes at midday. Though a thousand fall at your side, though ten thousand are dying around you, these evils will not touch you. Just open your eyes and see how the wicked are punished."
+        </div>
+
+        <div class="seg peak-seg">
+          "If you make the Lord your refuge, if you make the Most High your shelter, no evil will conquer you. No plague will come near your home, for He will order His angels to protect you wherever you go. They will hold you up with their hands so you won't even hurt your foot on a stone. You will trample upon lions and cobras. You will crush fierce lions and serpents under your feet."
+        </div>
+
+        <div class="seg peak-seg">
+          "The Lord says, I will rescue those who love me. I will protect those who trust in my name. When they call on me, I will answer. I will be with them in trouble. <strong>I will rescue and honor them. I will reward them with a long life and give them my salvation.</strong>"
+          <div class="reaction-note">
+            <strong>엔딩 처리:</strong> 마지막 절에서 자연 종료. Jenny의 "답 후 즉시 컷" 원칙은 우연히 충족됨. 그러나 그 전 단계가 다 빠져있어서 효과 없음.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="structure-block">
+        <h4>📐 대본 구조 (Jenny 6-element framework)</h4>
+        <div class="structure-stage" style="border-left-color: var(--red);">
+          <div class="ss-label" style="color: var(--red);">[HOOK] 없음 ❌</div>
+          <div class="ss-content">바로 본문 시작. 시청자 50% 이탈.</div>
+        </div>
+        <div class="structure-stage" style="border-left-color: var(--red);">
+          <div class="ss-label" style="color: var(--red);">[JOURNEY] 없음 ❌</div>
+          <div class="ss-content">But/So 없음, Pain point 없음, Testimony 없음.</div>
+        </div>
+        <div class="structure-stage peak">
+          <div class="ss-label">[PEAK] 0~80초</div>
+          <div class="ss-content">Psalm 91 NLT 본문 전체. 음원 963 Hz로 분위기 보강.</div>
+        </div>
+        <div class="structure-stage end">
+          <div class="ss-label">[END] 80~82초</div>
+          <div class="ss-content">자연 종료. CTA 없음.</div>
+        </div>
+      </div>
+
+      <div class="callaway-grid">
+        <div class="callaway-item fail">
+          <div class="ci-head">❌ #1 Delay 발생</div>
+          <div class="ci-detail">맥락 부여 없이 본문 시작.</div>
+        </div>
+        <div class="callaway-item ok">
+          <div class="ci-head">✅ #2 Confusion 회피</div>
+          <div class="ci-detail">본문 자체는 명확.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">❌ #3 Irrelevance</div>
+          <div class="ci-detail">Pain point 없음. you/your 사용 없음.</div>
+        </div>
+        <div class="callaway-item fail">
+          <div class="ci-head">❌ #4 Disinterest</div>
+          <div class="ci-detail">호기심 갭 0. 정보 갭 0. Contrast 0.</div>
+        </div>
+      </div>
+
+      <div class="verdict-box loser">
+        <strong>🎯 230만 팔로워 = 491K (0.21x):</strong> 평균 도달률 21% — <strong>이 영상은 viral이 아니라 평소보다 못한 영상</strong>. 메가 셀럽이라 491K가 나왔지만 팔로워 베이스가 없으면 이 포맷은 절대 viral 안 됨.<br><br>
+        <strong>벤치마킹 금지 사례.</strong> Jenny의 6대 기법, Callaway 4 mistakes 모두 0~1점. 이 영상이 작동하는 건 오직 "유명한 사람이 기도 영상 올렸네" 친숙도 효과뿐. 일반 크리에이터가 이 포맷 따라하면 100% 실패.
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- BENCHMARK -->
+<div class="benchmark-block">
+  <h2>🎯 828 Verse Box 벤치마킹 5룰</h2>
+  <p class="subtitle">@iammarissalopez 818x viral 공식을 우리 콘텐츠에 적용</p>
+
+  <div class="benchmark-card">
+    <div class="b-title">🪝 RULE 1. 3초 HOOK = Shock + Expectation + End Goal 동시 달성</div>
+    <div class="b-rule">"I don't know who needs to hear this, but..." 패턴이 검증된 신앙 niche viral 훅. 한 문장에 Jenny 3단계 + Callaway 2요소 모두 충족.</div>
+    <div class="b-example">
+      <strong>👉 828 적용:</strong> "<strong>I don't know who needs to hear this, but if you're feeling overwhelmed today, draw one of these 108 cards before you sleep.</strong>" → 카드는 안 보임 (콜드 오프닝 복선)
+    </div>
+  </div>
+
+  <div class="benchmark-card">
+    <div class="b-title">📅 RULE 2. 구체적 날짜 + Personal Testimony</div>
+    <div class="b-rule">"Since May 17th, 2025" — Jenny의 dual narrative + Callaway의 expected value. 막연한 "오래전부터" 대신 정확한 날짜 = 진정성 폭발.</div>
+    <div class="b-example">
+      <strong>👉 828 적용:</strong> "<strong>3월 12일 새벽 3시, 시험에서 떨어진 딸이 울고 있었어요.</strong> 108장을 펼쳐놓고 딱 한 장만 뽑아달라고 했는데, 그 카드 보는 순간 제 손이 떨렸어요..."
+    </div>
+  </div>
+
+  <div class="benchmark-card">
+    <div class="b-title">😰 RULE 3. Pain Point를 명시적으로 활성화</div>
+    <div class="b-rule">iammarissalopez "악몽으로 눈물 흘리며 깨던 시절" — Callaway의 "agitate the known pain point". 시청자가 자신과 동일시할 구체적 고통 묘사.</div>
+    <div class="b-example">
+      <strong>👉 828 적용:</strong> "두려움 때문에 잠 못 자던 새벽, 매일 가슴이 답답해서 잠 못 자던 그 시간, <strong>(BUT)</strong> 카드 한 장을 뽑았고 <strong>(SO)</strong> 그 말씀이 잠 들 때까지 마음에 남았어요."
+    </div>
+  </div>
+
+  <div class="benchmark-card">
+    <div class="b-title">🔄 RULE 4. Scripture "we/us" 변환 — 시청자를 본문 안으로</div>
+    <div class="b-rule">iammarissalopez의 천재성: Psalm 91 본문 "I/you"를 "we/us"로 모두 변환. 시청자가 화면 너머에서 같이 기도하는 느낌. the_trulyfreelife는 이 기법을 설명만 함. thefaithful/ally_yost는 변환 안 함.</div>
+    <div class="b-example">
+      <strong>👉 828 적용:</strong> 카드 말씀을 읽을 때 "He will keep <strong>YOU</strong>"가 아니라 "He will keep <strong>US</strong>". 시청자를 말씀 안으로 끌어들임.
+    </div>
+  </div>
+
+  <div class="benchmark-card">
+    <div class="b-title">💾 RULE 5. Save 유발 CTA — 알고리즘 push의 진짜 키</div>
+    <div class="b-rule">iammarissalopez 저장률 4.94% = 알고리즘 강력 push. "Do it every single night" 같은 실행 가능한 daily routine 처방 → 시청자가 "나중에 다시 봐야지" → save → 알고리즘 보상.</div>
+    <div class="b-example">
+      <strong>👉 828 적용:</strong> 영상 끝에 "<strong>매일 밤 잠들기 전 이 말씀을 폰 잠금화면에 띄워두세요.</strong>" 같은 명확한 행동 지시. 카드 사진을 잠금화면용으로 디자인해서 저장 유도.
+    </div>
+  </div>
+
+  <div class="benchmark-card" style="border-color: rgba(239,68,68,0.4);">
+    <div class="b-title">🚫 RULE 6. 절대 금지 패턴 (ally_yost / thefaithful 케이스)</div>
+    <div class="b-rule">팔로워 베이스 없이 이런 식으로 시작하면 100% 실패:</div>
+    <div class="b-example" style="border-left-color: var(--red);">
+      <strong style="color: var(--red);">❌ 금지:</strong> "오늘은 두려울 때 좋은 말씀 소개할게요" (Jenny 예고형 금지)<br>
+      <strong style="color: var(--red);">❌ 금지:</strong> "Hey 친구들~ 오늘은..." (niche-specific 인사 = 신규 진입 장벽)<br>
+      <strong style="color: var(--red);">❌ 금지:</strong> 훅 없이 바로 본문 (ally_yost 패턴 = 첫 3초 50% 이탈)
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
