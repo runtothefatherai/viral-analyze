@@ -12,3 +12,6 @@ __pycache__/
 *.mp4
 *.mov
 videos/
+
+# 프레임워크 참고 문서 (저작권 보호 — public repo 미포함, 로컬/내부 전용)
+reference/

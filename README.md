@@ -11,10 +11,7 @@ TikTok 영상 링크를 넣으면 **왜 바이럴이 되었는지** Jenny Hoyos 
 viral-analyze/
 ├── commands/
 │   └── viral-analyze.md      # /viral-analyze 슬래시 커맨드
-├── reference/                # 분석 근거가 되는 프레임워크 문서
-│   ├── How_to_Create_a_Killer_Hook...md
-│   ├── I_Studied_1_000_Hooks...md
-│   └── ...
+├── reference/                # 분석 근거 프레임워크 문서 (저작권 보호 — repo 미포함, 내부 공유)
 ├── reports/                  # 생성된 분석 리포트 (HTML)
 │   ├── index.html            # 리포트 목록 (랜딩 페이지)
 │   └── psalm91_viral_analysis.html
@@ -71,6 +68,8 @@ bash install.sh   # 커맨드 갱신
 | **Jenny Hoyos** | Shock → Expectation → End Goal (3초 훅), But/So 서사, Curiosity Gap, Peak-End |
 | **Callaway** | 4 Mistakes (Delay/Confusion/Irrelevance/Disinterest), Visual+Spoken+Text 훅 정렬 |
 | **Viral Multiplier** | 조회수 ÷ 팔로워수 = 팔로워 대비 도달 배수 |
+
+> 📌 프레임워크 원문 문서(`reference/`)는 저작권 보호를 위해 이 public repo에 포함되지 않습니다. 828 Brand 팀원은 내부 채널(Notion/카톡)로 별도 공유받으세요. 커맨드 자체에 핵심 체크리스트가 내장되어 있어 문서 없이도 작동합니다.
 
 ---
 
